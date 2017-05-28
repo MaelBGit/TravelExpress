@@ -15,7 +15,19 @@ namespace TravelExpress
         private int places;
         private string type;
         private string plaque;
-        private int idp;
+        private int idP;
+
+        public Car(int idV, string marque, string modele, int annee, int places, string type, string plaque, int idP)
+        {
+            this.idV = idV;
+            this.marque = marque;
+            this.modele = modele;
+            this.annee = annee;
+            this.places = places;
+            this.type = type;
+            this.plaque = plaque;
+            this.idP = idP;
+        }
 
         #region Get/Set
         public int IdV
@@ -113,12 +125,12 @@ namespace TravelExpress
         {
             get
             {
-                return idp;
+                return idP;
             }
 
             set
             {
-                idp = value;
+                idP = value;
             }
         }
 

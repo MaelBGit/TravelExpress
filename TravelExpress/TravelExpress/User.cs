@@ -3,6 +3,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace TravelExpress
 {
@@ -19,7 +20,26 @@ namespace TravelExpress
         private string pseudo;
         private string password;
         private string email;
+        Preference pref;
+        List<Car> listCar;
 
+        public User(int id, string nom, string prenom, int age, string adresse, string ville, string codepostal, int tel, string pseudo, string password, 
+            string email, Preference pref)
+        {
+            this.id = id;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.age = age;
+            this.adresse = adresse;
+            this.ville = ville;
+            this.codepostal = codepostal;
+            this.tel = tel;
+            this.pseudo = pseudo;
+            this.password = password;
+            this.email = email;
+            this.pref = pref;
+            this.listCar = new List<Car>();
+        }
 
         #region Get/Set
         public int Id
@@ -165,8 +185,39 @@ namespace TravelExpress
             }
         }
 
+        public Preference Pref
+        {
+            get
+            {
+                return pref;
+            }
+
+            set
+            {
+                pref = value;
+            }
+        }
+
+        public List<Car> ListCar
+        {
+            get
+            {
+                return listCar;
+            }
+
+            set
+            {
+                listCar = value;
+            }
+        }
+
         #endregion
 
+
+        public void addCar(Car car)
+        {
+            this.listCar.Add(car);
+        }
 
     }
 }

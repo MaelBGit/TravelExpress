@@ -13,6 +13,21 @@ namespace TravelExpress
         private bool fumeur;
         private string autre;
 
+        public Preference(int idPref, int idP, bool fumeur)
+        {
+            this.idPref = idPref;
+            this.idP = idP;
+            this.fumeur = fumeur;
+        }
+
+        public Preference(int idPref, int idP, bool fumeur, string autre)
+        {
+            this.idPref = idPref;
+            this.idP = idP;
+            this.fumeur = fumeur;
+            this.autre = autre;
+        }
+
         #region Get/Set
         public int IdPref
         {
