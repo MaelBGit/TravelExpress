@@ -29,6 +29,12 @@ namespace TravelExpress
             this.idP = idP;
         }
 
+        public void Insert_Car()
+        {
+
+        }
+
+
         #region Get/Set
         public int IdV
         {
