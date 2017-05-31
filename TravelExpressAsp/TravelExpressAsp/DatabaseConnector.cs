@@ -11,10 +11,19 @@ namespace TravelExpress
     public class DatabaseConnector
     {
 
-        public DataTable getDataSetFromTable(String table)
+        public MySqlConnection Connection()
         {
             string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
             MySqlConnection con = new MySqlConnection(constr);
+
+            return con;
+        }
+
+        public DataTable getDataSetFromTable(String table)
+        {
+
+
+            MySqlConnection con = Connection();
 
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + table);
             MySqlDataAdapter sda = new MySqlDataAdapter();
@@ -29,8 +38,9 @@ namespace TravelExpress
 
         public int AcceptConnection(String pseudo,String password)
         {
-            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            MySqlConnection con = new MySqlConnection(constr);
+
+            MySqlConnection con = Connection();
+
             String command = "SELECT id_user FROM user where pseudo ='" + pseudo + "' and password ='" + password + "'";
             MySqlCommand cmd = new MySqlCommand(command);
             MySqlDataAdapter sda = new MySqlDataAdapter();
