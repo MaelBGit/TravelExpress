@@ -28,7 +28,7 @@
             <asp:Parameter Name="registration" Type="String" />
         </InsertParameters>
         <SelectParameters>
-            <asp:SessionParameter DefaultValue="0" Name="id_user" SessionField="IdU" Type="Int32" />
+            <asp:SessionParameter DefaultValue="1" Name="id_user" SessionField="idu" Type="Int32" />
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="id_user" Type="Int32" />
