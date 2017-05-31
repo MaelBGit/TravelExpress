@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TravelExpressAsp.Account
+namespace TravelExpressAsp.Travel
 {
 
 
-    public partial class Lockout
+    public partial class ListTravel
     {
     }
 }

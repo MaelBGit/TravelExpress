@@ -16,7 +16,13 @@ namespace TravelExpressAsp
             DatabaseConnector dbc = new DatabaseConnector();
             DataTable dt = dbc.getDataSetFromTable("user");
             GridView1.DataSource = dt;
-            GridView1.DataBind();
+            dbc.AcceptConnection("johny", "password");
+
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -24,11 +24,27 @@ namespace TravelExpress
             DataTable dt = new DataTable();
                             
             sda.Fill(dt);
-            return dt;
-                            
-                        
-                    
-                
+            return dt;    
             }
+
+        public int AcceptConnection(String pseudo,String password)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            MySqlConnection con = new MySqlConnection(constr);
+            String command = "SELECT id_user FROM user where pseudo ='" + pseudo + "' and password ='" + password + "'";
+            MySqlCommand cmd = new MySqlCommand(command);
+            MySqlDataAdapter sda = new MySqlDataAdapter();
+
+            cmd.Connection = con;
+            sda.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            Console.WriteLine(dt.Rows.Count);
+            if (dt.Rows.Count == 1)
+            {
+                return (int) dt.Rows[0][0];
+            }
+            return 0;
         }
     }
+}

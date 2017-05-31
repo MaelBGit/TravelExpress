@@ -4,10 +4,12 @@
 
     <div class="jumbotron">
 
-        <h1>ASP.NET</h1>
+        <h1>Travel Express</h1>
         <p class="lead">
-            <asp:GridView ID="GridView1" runat="server">
+            <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
         </p>
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
