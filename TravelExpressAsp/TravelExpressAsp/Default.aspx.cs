@@ -14,9 +14,8 @@ namespace TravelExpressAsp
         protected void Page_Load(object sender, EventArgs e)
         {
             DatabaseConnector dbc = new DatabaseConnector();
-            DataTable dt = dbc.getDataSetFromTable("user");
-            GridView1.DataSource = dt;
             dbc.AcceptConnection("johny", "password");
+            Session["idu"] = "1";
 
         }
 

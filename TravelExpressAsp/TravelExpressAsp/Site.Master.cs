@@ -69,12 +69,20 @@ namespace TravelExpressAsp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["idu"] == null || Request.QueryString["logout"]=="true")
+            {
+                Session["idu"] = "0";
+            }
+            else
+            {
+                NotLogged.Visible = false;
+                Loggedin.Visible = true;
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
-            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session["idu"] = "0";
         }
     }
 

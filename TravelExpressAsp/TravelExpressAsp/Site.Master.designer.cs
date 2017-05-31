@@ -13,6 +13,24 @@ namespace TravelExpressAsp {
     public partial class SiteMaster {
         
         /// <summary>
+        /// NotLogged control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NotLogged;
+        
+        /// <summary>
+        /// Loggedin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Loggedin;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

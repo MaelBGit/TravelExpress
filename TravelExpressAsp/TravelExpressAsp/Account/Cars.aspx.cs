@@ -28,18 +28,25 @@ namespace TravelExpressAsp.Account
         {
             Erreur.Visible = false;
             Erreur2.Visible = false;
- 
-                if(Marque.Text != "" && Model.Text != "" && Annee.Text != "" && Places.Text != "" && ListeTypeCar.SelectedValue != "" && Plaque.Text != "")
-                 {
+            try
+            {
+                if (Marque.Text != "" && Model.Text != "" && Annee.Text != "" && Places.Text != "" && ListeTypeCar.SelectedValue != "" && Plaque.Text != "" && Session["idu"]!="0")
+                {
                     int year = int.Parse(Annee.Text);
                     int place = int.Parse(Places.Text);
-                    Car addCar = new Car(0, Marque.Text, Model.Text, year, place, ListeTypeCar.SelectedValue, Plaque.Text, 0 /*(int)Session["idu"]*/);
+                    Car addCar = new Car(0, Marque.Text, Model.Text, year, place, ListeTypeCar.SelectedValue, Plaque.Text, int.Parse((string)Session["idu"]));
                     addCar.Insert_Car_Into_DB();
-                 }
+                    Response.Redirect("Account/Cars");
+                }
                 else
                 {
                     Erreur.Visible = true;
                 }
+            }
+            catch(Exception ex)
+            {
+                Erreur2.Visible=true;
+            }
 
         }
     }

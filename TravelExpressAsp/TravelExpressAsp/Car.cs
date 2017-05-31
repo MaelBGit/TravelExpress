@@ -38,10 +38,9 @@ namespace TravelExpress
             con.Open();
             MySqlCommand myCommand = con.CreateCommand();
     
-            myCommand.CommandText = "INSERT INTO car(id_car,id_user,brand,model,type,places,year,registration) VALUES(@idV,@idP,@marque,@modele,@type,@places,@annee,@plaque)";
+            myCommand.CommandText = "INSERT INTO car(id_user,brand,model,type,places,year,registration) VALUES(@idP,@marque,@modele,@type,@places,@annee,@plaque)";
 
             // utilisation de l'objet contact passé en paramètre
-            myCommand.Parameters.AddWithValue("@idV", idV);
             myCommand.Parameters.AddWithValue("@idP", idP);
             myCommand.Parameters.AddWithValue("@marque", marque);
             myCommand.Parameters.AddWithValue("@modele", modele);
