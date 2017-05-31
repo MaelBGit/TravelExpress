@@ -46,6 +46,14 @@
         </tr>
         <tr>
             <td>
+                Phone :
+            </td>
+            <td>
+                <asp:TextBox ID="Phone" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Address :
             </td>
             <td>

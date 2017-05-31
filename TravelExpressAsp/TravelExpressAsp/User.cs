@@ -12,7 +12,6 @@ namespace TravelExpress
         private int id;
         private string nom;
         private string prenom;
-        private int age;
         private string adresse;
         private string ville;
         private string codepostal;
@@ -23,22 +22,36 @@ namespace TravelExpress
         Preference pref;
         List<Car> listCar;
 
-        public User(int id, string nom, string prenom, int age, string adresse, string ville, string codepostal, int tel, string pseudo, string password, 
+
+        public User(int id, string nom, string prenom, string adresse, string ville, int tel, string pseudo, string password,
+    string email)
+        {
+            this.id = id;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.adresse = adresse;
+            this.ville = ville;
+            this.tel = tel;
+            this.pseudo = pseudo;
+            this.password = password;
+            this.email = email;
+            listCar = new List<Car>();
+        }
+
+        public User(int id, string nom, string prenom, string adresse, string ville, int tel, string pseudo, string password, 
             string email, Preference pref)
         {
             this.id = id;
             this.nom = nom;
             this.prenom = prenom;
-            this.age = age;
             this.adresse = adresse;
             this.ville = ville;
-            this.codepostal = codepostal;
             this.tel = tel;
             this.pseudo = pseudo;
             this.password = password;
             this.email = email;
             this.pref = pref;
-            this.listCar = new List<Car>();
+            listCar = new List<Car>();
         }
 
         #region Get/Set
@@ -81,18 +94,6 @@ namespace TravelExpress
             }
         }
 
-        public int Age
-        {
-            get
-            {
-                return age;
-            }
-
-            set
-            {
-                age = value;
-            }
-        }
 
         public string Adresse
         {
@@ -216,7 +217,7 @@ namespace TravelExpress
 
         public void addCar(Car car)
         {
-            this.listCar.Add(car);
+            listCar.Add(car);
         }
 
     }
