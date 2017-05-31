@@ -3,6 +3,8 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace TravelExpress
 {
@@ -29,8 +31,33 @@ namespace TravelExpress
             this.idP = idP;
         }
 
-        public void Insert_Car()
+        public void Insert_Car_Into_DB()
         {
+            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            MySqlConnection con = new MySqlConnection(constr);
+            con.Open();
+            MySqlCommand myCommand = con.CreateCommand();
+    
+            myCommand.CommandText = "INSERT INTO car(id_car,id_user,brand,model,type,places,year,registration) VALUES(@idV,@idP,@marque,@modele,@type,@places,@annee,@plaque)";
+
+            // utilisation de l'objet contact passé en paramètre
+            myCommand.Parameters.AddWithValue("@idV", idV);
+            myCommand.Parameters.AddWithValue("@idP", idP);
+            myCommand.Parameters.AddWithValue("@marque", marque);
+            myCommand.Parameters.AddWithValue("@modele", modele);
+            myCommand.Parameters.AddWithValue("@annee", annee);
+            myCommand.Parameters.AddWithValue("@places", places);
+            myCommand.Parameters.AddWithValue("@type", type);
+            myCommand.Parameters.AddWithValue("@plaque", plaque);
+
+            myCommand.ExecuteNonQuery(); //Problème insertion idP car c'est un FOREIGN KEY
+
+            con.Close();
+
+               // return "Datas saved";
+
+            
+
 
         }
 

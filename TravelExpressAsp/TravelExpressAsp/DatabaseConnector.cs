@@ -10,14 +10,17 @@ namespace TravelExpress
 {
     public class DatabaseConnector
     {
+        private MySqlConnection con;
 
         public MySqlConnection Connection()
         {
             string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            MySqlConnection con = new MySqlConnection(constr);
+            con = new MySqlConnection(constr);
+
 
             return con;
         }
+
 
         public DataTable getDataSetFromTable(String table)
         {

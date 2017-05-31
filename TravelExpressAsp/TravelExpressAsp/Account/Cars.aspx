@@ -48,4 +48,82 @@
             <asp:Parameter Name="original_registration" Type="String" />
         </UpdateParameters>
     </asp:SqlDataSource>
+
+    <div id="ShowAddCar" runat="server" visible="false">
+    <br />
+        <table>
+            <tr>
+                <td>
+                     Brand :
+                </td>
+                <td>
+                    <asp:TextBox ID="Marque" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Model :
+                </td>
+                <td>
+                    <asp:TextBox ID="Model" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Type :
+                </td>
+                <td>
+                    <asp:DropDownList ID="ListeTypeCar" runat="server">
+                        <asp:ListItem Text="Citadine" Value="Citadine" />
+                        <asp:ListItem Text="Berline" Value="Berline" />
+                        <asp:ListItem Text="4x4" Value="4x4" />
+                        <asp:ListItem Text="SUV/Famillial" Value="SUV/Famillial" />
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Places :
+                </td>
+                <td>
+                    <asp:TextBox ID="Places" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Year :
+                </td>
+                <td>
+                    <asp:TextBox ID="Annee" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Registration : 
+                </td>
+                <td>
+                    <asp:TextBox ID="Plaque" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                     <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Terminer" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                     <asp:Label ID="Erreur" Visible="false" runat="server"> Each field has to be filled ! </asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                     <asp:Label ID="Erreur2" Visible="false" runat="server"> Year and Places have to be integers ! </asp:Label>
+                </td>
+            </tr>
+        </table>
+     </div>
+
 </asp:Content>

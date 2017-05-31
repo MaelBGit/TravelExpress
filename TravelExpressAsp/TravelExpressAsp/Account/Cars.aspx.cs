@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TravelExpress;
 
 namespace TravelExpressAsp.Account
 {
@@ -16,7 +17,30 @@ namespace TravelExpressAsp.Account
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if(ShowAddCar.Visible == false)
+                ShowAddCar.Visible = true;
             
+            else if(ShowAddCar.Visible == true)
+                ShowAddCar.Visible = false;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Erreur.Visible = false;
+            Erreur2.Visible = false;
+ 
+                if(Marque.Text != "" && Model.Text != "" && Annee.Text != "" && Places.Text != "" && ListeTypeCar.SelectedValue != "" && Plaque.Text != "")
+                 {
+                    int year = int.Parse(Annee.Text);
+                    int place = int.Parse(Places.Text);
+                    Car addCar = new Car(0, Marque.Text, Model.Text, year, place, ListeTypeCar.SelectedValue, Plaque.Text, 0 /*(int)Session["idu"]*/);
+                    addCar.Insert_Car_Into_DB();
+                 }
+                else
+                {
+                    Erreur.Visible = true;
+                }
+
         }
     }
 }
