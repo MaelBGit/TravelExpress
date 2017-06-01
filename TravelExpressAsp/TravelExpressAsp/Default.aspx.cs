@@ -15,7 +15,11 @@ namespace TravelExpressAsp
         {
             DatabaseConnector dbc = new DatabaseConnector();
             dbc.AcceptConnection("johny", "password");
-            Session["idu"] = "1";
+            if ((int)Session["idu"] == 0)
+            {
+                Session["idu"] = 1;
+            }
+            
 
         }
 

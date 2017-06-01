@@ -17,15 +17,13 @@ namespace TravelExpress
         private string adresse;
         private string ville;
         private string codepostal;
-        private int tel;
+        private string tel;
         private string pseudo;
         private string password;
         private string email;
-        Preference pref;
-        List<Car> listCar;
 
 
-        public User(int id, string nom, string prenom, string adresse, string ville, int tel, string pseudo, string password,
+        public User(int id, string nom, string prenom, string adresse, string ville, string tel, string pseudo, string password,
     string email)
         {
             this.id = id;
@@ -37,10 +35,9 @@ namespace TravelExpress
             this.pseudo = pseudo;
             this.password = password;
             this.email = email;
-            listCar = new List<Car>();
         }
 
-        public User(int id, string nom, string prenom, string adresse, string ville, int tel, string pseudo, string password, 
+        public User(int id, string nom, string prenom, string adresse, string ville, string  tel, string pseudo, string password, 
             string email, Preference pref)
         {
             this.id = id;
@@ -52,8 +49,6 @@ namespace TravelExpress
             this.pseudo = pseudo;
             this.password = password;
             this.email = email;
-            this.pref = pref;
-            listCar = new List<Car>();
         }
 
         public void Insert_User_Into_DB()
@@ -63,11 +58,11 @@ namespace TravelExpress
             con.Open();
             MySqlCommand myCommand = con.CreateCommand();
 
-            myCommand.CommandText = "INSERT INTO user(first name,last name,address,town,telephone,pseudo,mail,password) VALUES(@first name,@last name,@address,@town,@telephone,@pseudo,@mail,@password)";
+            myCommand.CommandText = "INSERT INTO user(first_name,last_name,address,town,telephone,pseudo,mail,password) VALUES(@firstname,@lastname,@address,@town,@telephone,@pseudo,@mail,@password)";
 
             // utilisation de l'objet contact passé en paramètre
-            myCommand.Parameters.AddWithValue("@first name", prenom);
-            myCommand.Parameters.AddWithValue("@last name", nom);
+            myCommand.Parameters.AddWithValue("@firstname", prenom);
+            myCommand.Parameters.AddWithValue("@lastname", nom);
             myCommand.Parameters.AddWithValue("@address", adresse);
             myCommand.Parameters.AddWithValue("@town", ville);
             myCommand.Parameters.AddWithValue("@telephone", tel);
@@ -158,7 +153,7 @@ namespace TravelExpress
             }
         }
 
-        public int Tel
+        public string Tel
         {
             get
             {
@@ -209,33 +204,6 @@ namespace TravelExpress
                 email = value;
             }
         }
-
-        public Preference Pref
-        {
-            get
-            {
-                return pref;
-            }
-
-            set
-            {
-                pref = value;
-            }
-        }
-
-        public List<Car> ListCar
-        {
-            get
-            {
-                return listCar;
-            }
-
-            set
-            {
-                listCar = value;
-            }
-        }
-
         #endregion
 
 

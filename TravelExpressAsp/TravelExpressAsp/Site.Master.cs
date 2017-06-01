@@ -71,7 +71,7 @@ namespace TravelExpressAsp
         {
             if (Session["idu"] == null || Request.QueryString["logout"]=="true")
             {
-                Session["idu"] = "0";
+                Session["idu"] = 0;
             }
             else
             {
@@ -82,7 +82,7 @@ namespace TravelExpressAsp
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
-            Session["idu"] = "0";
+            Session["idu"] = 0;
         }
     }
 

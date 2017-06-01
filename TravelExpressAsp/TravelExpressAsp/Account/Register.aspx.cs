@@ -17,9 +17,12 @@ namespace TravelExpressAsp.Account
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int number = int.Parse(Phone.Text);
-            User user = new User(0, L_Name.Text, F_name.Text, Address.Text, Town.Text, number, Pseudo.Text, Password.Text, Mail.Text);
-            user.Insert_User_Into_DB();
+            if (L_Name.Text != "" && F_name.Text != "" && Address.Text != "" && Town.Text != "" && Phone.Text != "" && Pseudo.Text != "" && Password.Text != "" && Mail.Text != "")
+            {
+                User user = new User(0, L_Name.Text, F_name.Text, Address.Text, Town.Text, Phone.Text, Pseudo.Text, Password.Text, Mail.Text);
+                user.Insert_User_Into_DB();
+                Response.Redirect("../Default.aspx");
+            }
         }
     }
 }
