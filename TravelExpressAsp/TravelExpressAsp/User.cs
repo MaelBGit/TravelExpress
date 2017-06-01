@@ -4,6 +4,8 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
 using System.Collections.Generic;
+using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace TravelExpress
 {
@@ -52,6 +54,28 @@ namespace TravelExpress
             this.email = email;
             this.pref = pref;
             listCar = new List<Car>();
+        }
+
+        public void Insert_User_Into_DB()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            MySqlConnection con = new MySqlConnection(constr);
+            con.Open();
+            MySqlCommand myCommand = con.CreateCommand();
+
+            myCommand.CommandText = "INSERT INTO user(first name,last name,address,town,telephone,pseudo,mail,password) VALUES(@first name,@last name,@address,@town,@telephone,@pseudo,@mail,@password)";
+
+            // utilisation de l'objet contact passé en paramètre
+            myCommand.Parameters.AddWithValue("@first name", prenom);
+            myCommand.Parameters.AddWithValue("@last name", nom);
+            myCommand.Parameters.AddWithValue("@address", adresse);
+            myCommand.Parameters.AddWithValue("@town", ville);
+            myCommand.Parameters.AddWithValue("@telephone", tel);
+            myCommand.Parameters.AddWithValue("@pseudo", pseudo);
+            myCommand.Parameters.AddWithValue("@mail", email);
+            myCommand.Parameters.AddWithValue("@password", password);
+
+            myCommand.ExecuteNonQuery(); //Problème insertion idP car c'est un FOREIGN KEY
         }
 
         #region Get/Set
@@ -214,11 +238,6 @@ namespace TravelExpress
 
         #endregion
 
-
-        public void addCar(Car car)
-        {
-            listCar.Add(car);
-        }
 
     }
 }
