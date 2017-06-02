@@ -85,6 +85,24 @@ namespace TravelExpressAsp.Account {
         protected global::System.Web.UI.WebControls.TextBox Town;
         
         /// <summary>
+        /// Smoke control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox Smoke;
+        
+        /// <summary>
+        /// Other control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Other;
+        
+        /// <summary>
         /// Button1 control.
         /// </summary>
         /// <remarks>

@@ -3,6 +3,8 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace TravelExpress
 {
@@ -26,6 +28,22 @@ namespace TravelExpress
             this.idP = idP;
             this.fumeur = fumeur;
             this.autre = autre;
+        }
+
+        public void Insert_Pref_Into_DB()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            MySqlConnection con = new MySqlConnection(constr);
+            con.Open();
+            MySqlCommand myCommand = con.CreateCommand();
+
+            myCommand.CommandText = "INSERT INTO preference(smoke,other) VALUES(@smoke,@other)";
+
+            // utilisation de l'objet contact passé en paramètre
+            myCommand.Parameters.AddWithValue("@smoke", fumeur);
+            myCommand.Parameters.AddWithValue("@other", autre);
+
+            myCommand.ExecuteNonQuery(); 
         }
 
         #region Get/Set

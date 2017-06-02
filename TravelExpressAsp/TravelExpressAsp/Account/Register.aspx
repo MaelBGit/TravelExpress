@@ -6,6 +6,13 @@
     <table>
         <tr>
             <td>
+            </td>
+            <td>
+                Registration :
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Pseudo :
             </td>
             <td>
@@ -68,7 +75,29 @@
                 <asp:TextBox ID="Town" runat="server"></asp:TextBox>
             </td>
         </tr>
-
+        <tr>
+            <td>
+            </td>
+            <td>
+                Preferences :
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Smonking (default NO) :
+            </td>
+            <td>
+                <asp:CheckBox ID="Smoke" runat="server" Text="Yes" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Other :
+            </td>
+            <td>
+                <asp:TextBox ID="Other" runat="server"></asp:TextBox>
+            </td>
+        </tr>
     </table>
     
 
