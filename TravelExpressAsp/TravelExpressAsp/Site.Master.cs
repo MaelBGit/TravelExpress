@@ -69,7 +69,7 @@ namespace TravelExpressAsp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["idu"] == null || Request.QueryString["logout"]=="true")
+            if (Session["idu"] == null || ((int)Session["idu"]) == 0 || Request.QueryString["logout"]=="true")
             {
                 Session["idu"] = 0;
             }

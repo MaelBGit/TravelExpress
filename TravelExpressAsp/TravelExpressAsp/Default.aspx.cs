@@ -14,11 +14,6 @@ namespace TravelExpressAsp
         protected void Page_Load(object sender, EventArgs e)
         {
             DatabaseConnector dbc = new DatabaseConnector();
-            dbc.AcceptConnection("johny", "password");
-            if ((int)Session["idu"] == 0)
-            {
-                Session["idu"] = 1;
-            }
             
 
         }

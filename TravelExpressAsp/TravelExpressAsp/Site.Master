@@ -65,7 +65,6 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="Composants Bootstrap">Compte<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="/Account/Account" title="Glyphicons">My Account</a></li>
-                <li><a href="/Account/Cars" title="Font awesome">My Cars</a></li>
                 <li><a href="/Account/MyTravels" title="Dropdowns">My travels</a></li>
               </ul>
             </li></li>

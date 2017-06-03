@@ -5,22 +5,24 @@
     <br/>
     <table>
         <tr>
-            <td>
+            <td style="width: 185px">
             </td>
             <td>
                 Registration :
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 185px">
                 Pseudo :
+                <br />
+                <asp:Label ID="Erreur2" runat="server" Text="this pseudo already exist" Visible="False"></asp:Label>
             </td>
             <td>
                 <asp:TextBox ID="Pseudo" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 185px">
                 Password :
             </td>
             <td>
@@ -28,7 +30,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 185px">
                 Mail :
             </td>
             <td>
@@ -36,7 +38,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 185px">
                 First name :
             </td>
             <td>
@@ -44,7 +46,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 185px">
                 Last name :
             </td>
             <td>
@@ -52,7 +54,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 185px">
                 Phone :
             </td>
             <td>
@@ -60,7 +62,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 185px">
                 Address :
             </td>
             <td>
@@ -68,7 +70,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 185px">
                 Town :
             </td>
             <td>
@@ -76,32 +78,36 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 185px">
             </td>
             <td>
                 Preferences :
             </td>
         </tr>
         <tr>
-            <td>
-                Smonking (default NO) :
+            <td style="width: 185px">
+                Smoking (default NO) :
             </td>
             <td>
                 <asp:CheckBox ID="Smoke" runat="server" Text="Yes" />
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="width: 185px">
                 Other :
             </td>
             <td>
-                <asp:TextBox ID="Other" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Other" runat="server" Height="70px" TextMode="MultiLine" Width="283px"></asp:TextBox>
             </td>
         </tr>
     </table>
     
 
     <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
+
+    <br />
+    <asp:Label ID="Erreur1" runat="server" Text="You have to fill everything" Visible="False"></asp:Label>
+    <br />
 
 </asp:Content>
 

@@ -70,7 +70,7 @@ namespace TravelExpress
             myCommand.Parameters.AddWithValue("@mail", email);
             myCommand.Parameters.AddWithValue("@password", password);
 
-            myCommand.ExecuteNonQuery(); //Problème insertion idP car c'est un FOREIGN KEY
+            myCommand.ExecuteNonQuery();
         }
 
         #region Get/Set

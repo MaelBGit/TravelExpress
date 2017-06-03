@@ -37,9 +37,8 @@ namespace TravelExpress
             con.Open();
             MySqlCommand myCommand = con.CreateCommand();
 
-            myCommand.CommandText = "INSERT INTO preference(smoke,other) VALUES(@smoke,@other)";
-
-            // utilisation de l'objet contact passé en paramètre
+            myCommand.CommandText = "INSERT INTO preference(id_user,smoke,other) VALUES(@idu,@smoke,@other)";
+            myCommand.Parameters.AddWithValue("@idu", IdP);
             myCommand.Parameters.AddWithValue("@smoke", fumeur);
             myCommand.Parameters.AddWithValue("@other", autre);
 

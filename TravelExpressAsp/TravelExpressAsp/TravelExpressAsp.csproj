@@ -185,7 +185,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Account\Account.aspx" />
-    <Content Include="Account\Cars.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\MyTravels.aspx" />
     <Content Include="Account\Register.aspx" />
@@ -256,13 +255,6 @@
     </Compile>
     <Compile Include="Account\Account.aspx.designer.cs">
       <DependentUpon>Account.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Cars.aspx.cs">
-      <DependentUpon>Cars.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Cars.aspx.designer.cs">
-      <DependentUpon>Cars.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
