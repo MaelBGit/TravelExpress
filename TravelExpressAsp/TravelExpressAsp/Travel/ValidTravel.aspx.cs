@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TravelExpressAsp.Travel
 {
-    public partial class ValidateTravel : System.Web.UI.Page
+    public partial class ValidTravel : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -18,7 +18,7 @@ namespace TravelExpressAsp.Account
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Cars.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace TravelExpressAsp.Account
                     int place = int.Parse(Places.Text);
                     Car addCar = new Car(0, Marque.Text, Model.Text, year, place, ListeTypeCar.SelectedValue, Plaque.Text, (int)Session["idu"]);
                     addCar.Insert_Car_Into_DB();
-                    Response.Redirect("Cars.aspx");
+                    Response.Redirect("Account.aspx");
                 }
                 else
                 {
@@ -64,6 +64,12 @@ namespace TravelExpressAsp.Account
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
 
+        }
+        protected void Cars_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int ID = int.Parse(Cars.DataKeys[e.RowIndex].Values["id_car"].ToString());
+            string delete_command = "DELETE FROM car WHERE id_car = " + ID;
+            SqlDataSource2.DeleteCommand = delete_command;
         }
     }
 }

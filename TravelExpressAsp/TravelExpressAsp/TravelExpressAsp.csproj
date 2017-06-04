@@ -231,9 +231,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
-    <Content Include="Travel\CreateTravel.aspx" />
-    <Content Include="Travel\ListTravel.aspx" />
-    <Content Include="Travel\ValidateTravel.aspx" />
+    <Content Include="Travel\ValidTravel.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -324,26 +322,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Travel\CreateTravel.aspx.cs">
-      <DependentUpon>CreateTravel.aspx</DependentUpon>
+    <Compile Include="Travel.cs" />
+    <Compile Include="Travel\ValidTravel.aspx.cs">
+      <DependentUpon>ValidTravel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Travel\CreateTravel.aspx.designer.cs">
-      <DependentUpon>CreateTravel.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Travel\ListTravel.aspx.cs">
-      <DependentUpon>ListTravel.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Travel\ListTravel.aspx.designer.cs">
-      <DependentUpon>ListTravel.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Travel\ValidateTravel.aspx.cs">
-      <DependentUpon>ValidateTravel.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Travel\ValidateTravel.aspx.designer.cs">
-      <DependentUpon>ValidateTravel.aspx</DependentUpon>
+    <Compile Include="Travel\ValidTravel.aspx.designer.cs">
+      <DependentUpon>ValidTravel.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">

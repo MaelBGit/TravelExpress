@@ -11,7 +11,7 @@ namespace TravelExpressAsp.Travel
 {
 
 
-    public partial class ListTravel
+    public partial class ValidTravel
     {
     }
 }
