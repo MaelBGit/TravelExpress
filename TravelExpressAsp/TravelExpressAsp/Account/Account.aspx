@@ -279,5 +279,41 @@
         <br />
         
      </div>
-    <asp:Label ID="Label3" runat="server" Text="Mes Préférences"></asp:Label>
+    My preferences<br />
+<asp:FormView ID="FormView2" runat="server" DataSourceID="SqlDataSource3">
+    <EditItemTemplate>
+        smoke:
+        <asp:CheckBox ID="smokeCheckBox" runat="server" Checked='<%# Bind("smoke") %>' />
+        <br />
+        other:
+        <asp:TextBox ID="otherTextBox" runat="server" Text='<%# Bind("other") %>' />
+        <br />
+        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+        &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+    </EditItemTemplate>
+    <InsertItemTemplate>
+        smoke:
+        <asp:CheckBox ID="smokeCheckBox" runat="server" Checked='<%# Bind("smoke") %>' />
+        <br />
+        other:
+        <asp:TextBox ID="otherTextBox" runat="server" Text='<%# Bind("other") %>' />
+        <br />
+        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+        &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+    </InsertItemTemplate>
+    <ItemTemplate>
+        smoke:
+        <asp:CheckBox ID="smokeCheckBox" runat="server" Checked='<%# Bind("smoke") %>' Enabled="false" />
+        <br />
+        other:
+        <asp:Label ID="otherLabel" runat="server" Text='<%# Bind("other") %>' />
+        <br />
+
+    </ItemTemplate>
+</asp:FormView>
+<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:travelexpressConnectionString2 %>" ProviderName="<%$ ConnectionStrings:travelexpressConnectionString2.ProviderName %>" SelectCommand="SELECT [smoke], [other] FROM [preference] WHERE ([id_user] = ?)">
+    <SelectParameters>
+        <asp:SessionParameter DefaultValue="0" Name="id_user" SessionField="idu" Type="Int32" />
+    </SelectParameters>
+</asp:SqlDataSource>
 </asp:Content>

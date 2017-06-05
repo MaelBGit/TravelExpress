@@ -331,6 +331,7 @@
       <DependentUpon>ValidTravel.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <Compile Include="Validation.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

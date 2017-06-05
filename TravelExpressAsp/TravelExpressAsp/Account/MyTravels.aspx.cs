@@ -13,6 +13,10 @@ namespace TravelExpressAsp.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["idu"] == null || (int)Session["idu"] == 0)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -101,6 +105,11 @@ namespace TravelExpressAsp.Account
         protected void MaxPlace_DataBound(object sender, EventArgs e)
         {
             MaxPlace.SelectedIndex = 0;
+        }
+
+        protected void SqlDataSource4_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
         }
     }
 }

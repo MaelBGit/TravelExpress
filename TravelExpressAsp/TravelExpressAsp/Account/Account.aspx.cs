@@ -20,6 +20,10 @@ namespace TravelExpressAsp.Account
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["idu"] == null || (int)Session["idu"] == 0)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
             Cars.DataBind();
         }
 

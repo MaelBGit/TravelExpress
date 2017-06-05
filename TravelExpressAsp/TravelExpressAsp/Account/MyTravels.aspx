@@ -1,6 +1,37 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyTravels.aspx.cs" Inherits="TravelExpressAsp.Account.MyTravels" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id_journey" DataSourceID="SqlDataSource3" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
+    Travel Reserved:<br />
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" Width="100%" CellPadding="4" DataKeyNames="id_journey" DataSourceID="SqlDataSource4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:BoundField DataField="availableplaces" HeaderText="availableplaces" SortExpression="availableplaces" />
+            <asp:BoundField DataField="id_journey" HeaderText="id_journey" InsertVisible="False" ReadOnly="True" SortExpression="id_journey" />
+            <asp:BoundField DataField="start" HeaderText="start" SortExpression="start" />
+            <asp:BoundField DataField="end" HeaderText="end" SortExpression="end" />
+            <asp:BoundField DataField="date" HeaderText="date" SortExpression="date" />
+            <asp:BoundField DataField="departure" HeaderText="departure" SortExpression="departure" />
+            <asp:BoundField DataField="arrival" HeaderText="arrival" SortExpression="arrival" />
+            <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
+            <asp:BoundField DataField="places" HeaderText="places" SortExpression="places" />
+        </Columns>
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+    </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:travelexpressConnectionString2 %>" ProviderName="<%$ ConnectionStrings:travelexpressConnectionString2.ProviderName %>" SelectCommand="SELECT travel.places - COALESCE(SUM(reservation.places), 0) AS availableplaces, travel.id_journey, travel.start, travel.end, travel.`date`, travel.departure, travel.arrival, travel.price, reservation.places FROM reservation RIGHT OUTER JOIN travel ON reservation.id_journey = travel.id_journey GROUP BY travel.id_journey, travel.start, travel.end, travel.`date`, travel.departure, travel.arrival, travel.price, reservation.places, reservation.id_user HAVING (reservation.id_user = @Param1)" OnSelecting="SqlDataSource4_Selecting">
+                <SelectParameters>
+                    <asp:SessionParameter DefaultValue="0" Name="Param1" SessionField="idu" />
+                </SelectParameters>
+</asp:SqlDataSource>
+        <br />
+    Travel Proposed:<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id_journey" DataSourceID="SqlDataSource3" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="id_journey" HeaderText="id_journey" InsertVisible="False" ReadOnly="True" SortExpression="id_journey" Visible="False" />
