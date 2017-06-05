@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TravelExpress;
+using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace TravelExpressAsp.Account
 {
@@ -54,6 +56,43 @@ namespace TravelExpressAsp.Account
                 Erreur2.Visible = true;
             }
 
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            if (showMdp.Visible == false)
+                showMdp.Visible = true;
+
+            else if (showMdp.Visible == true)
+                showMdp.Visible = false;
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            if(newpassword.Text != "" && confirm.Text != "" && newpassword.Text == confirm.Text)
+            {
+                string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+                MySqlConnection con = new MySqlConnection(constr);
+                con.Open();
+
+                int ID = (int)Session["idu"];
+
+                MySqlCommand myCommand = con.CreateCommand();
+                    
+                myCommand.CommandText = "UPDATE user SET password = @password WHERE id_user = @id";
+
+                myCommand.Parameters.AddWithValue("@password", newpassword.Text);
+                myCommand.Parameters.AddWithValue("@id", ID);
+
+                myCommand.ExecuteNonQuery();
+
+                con.Close();
+                Response.Redirect("Account.aspx");
+            }
+            else
+            {
+                Erreurpass.Visible = true;
+            }
         }
 
         protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
