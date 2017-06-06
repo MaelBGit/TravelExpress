@@ -14,10 +14,7 @@ namespace TravelExpressAsp.Account
     {
 
 
-        protected void FormView1_PageIndexChanging(object sender, FormViewPageEventArgs e)
-        {
 
-        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["idu"] == null || (int)Session["idu"] == 0)
@@ -26,8 +23,12 @@ namespace TravelExpressAsp.Account
             }
             Cars.DataBind();
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Bouton pour afficher la création de voiture
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ShowAddCar_Click(object sender, EventArgs e)
         {
             if (ShowAddCar.Visible == false)
                 ShowAddCar.Visible = true;
@@ -35,8 +36,12 @@ namespace TravelExpressAsp.Account
             else if (ShowAddCar.Visible == true)
                 ShowAddCar.Visible = false;
         }
-
-        protected void Button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Bouton d'ajout de voiture dans la base de donnée après vérification
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void AddCar_Click(object sender, EventArgs e)
         {
             Erreur.Visible = false;
             Erreur2.Visible = false;
@@ -61,8 +66,12 @@ namespace TravelExpressAsp.Account
             }
 
         }
-
-        protected void Button3_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Affichage de l'interface de changement de mot de passe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ShowPass_Click(object sender, EventArgs e)
         {
             if (showMdp.Visible == false)
                 showMdp.Visible = true;
@@ -70,8 +79,12 @@ namespace TravelExpressAsp.Account
             else if (showMdp.Visible == true)
                 showMdp.Visible = false;
         }
-
-        protected void Button4_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Bouton de changement de mot de passe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ChangePass_Click(object sender, EventArgs e)
         {
             if(newpassword.Text != "" && confirm.Text != "" && newpassword.Text == confirm.Text)
             {
@@ -98,16 +111,11 @@ namespace TravelExpressAsp.Account
                 Erreurpass.Visible = true;
             }
         }
-
-        protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-        {
-
-        }
-
-        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-        {
-
-        }
+        /// <summary>
+        /// Bouton de suppression de voiture
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Cars_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int ID = int.Parse(Cars.DataKeys[e.RowIndex].Values["id_car"].ToString());

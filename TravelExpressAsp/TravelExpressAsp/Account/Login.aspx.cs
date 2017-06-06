@@ -14,8 +14,12 @@ namespace TravelExpressAsp.Account
         {
 
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Clic sur le bouton de Connection à l'application, si la verification est validée, l'utilisateur est connecté
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Login_Click(object sender, EventArgs e)
         {
 
             DatabaseConnector dbc = new DatabaseConnector();

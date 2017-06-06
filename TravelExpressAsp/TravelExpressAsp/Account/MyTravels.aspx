@@ -4,7 +4,7 @@
     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" Width="100%" CellPadding="4" DataKeyNames="id_journey" DataSourceID="SqlDataSource4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="availableplaces" HeaderText="availableplaces" SortExpression="availableplaces" />
+            <asp:BoundField DataField="availableplaces" HeaderText="Available places" SortExpression="availableplaces" />
             <asp:BoundField DataField="id_journey" HeaderText="id_journey" InsertVisible="False" ReadOnly="True" SortExpression="id_journey" />
             <asp:BoundField DataField="start" HeaderText="start" SortExpression="start" />
             <asp:BoundField DataField="end" HeaderText="end" SortExpression="end" />
@@ -25,7 +25,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:travelexpressConnectionString2 %>" ProviderName="<%$ ConnectionStrings:travelexpressConnectionString2.ProviderName %>" SelectCommand="SELECT travel.places - COALESCE(SUM(reservation.places), 0) AS availableplaces, travel.id_journey, travel.start, travel.end, travel.`date`, travel.departure, travel.arrival, travel.price, reservation.places FROM reservation RIGHT OUTER JOIN travel ON reservation.id_journey = travel.id_journey GROUP BY travel.id_journey, travel.start, travel.end, travel.`date`, travel.departure, travel.arrival, travel.price, reservation.places, reservation.id_user HAVING (reservation.id_user = @Param1)" OnSelecting="SqlDataSource4_Selecting">
+            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:travelexpressConnectionString2 %>" ProviderName="<%$ ConnectionStrings:travelexpressConnectionString2.ProviderName %>" SelectCommand="SELECT travel.places - COALESCE(SUM(reservation.places), 0) AS availableplaces, travel.id_journey, travel.start, travel.end, travel.`date`, travel.departure, travel.arrival, travel.price, reservation.places FROM reservation RIGHT OUTER JOIN travel ON reservation.id_journey = travel.id_journey GROUP BY travel.id_journey, travel.start, travel.end, travel.`date`, travel.departure, travel.arrival, travel.price, reservation.places, reservation.id_user HAVING (reservation.id_user = @Param1)">
                 <SelectParameters>
                     <asp:SessionParameter DefaultValue="0" Name="Param1" SessionField="idu" />
                 </SelectParameters>
@@ -76,7 +76,7 @@
         </asp:SqlDataSource>
     <br />
     <br />
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="AddCar" />
+    <asp:Button ID="ShowCar" runat="server" OnClick="ShowCar_Click" Text="AddCar" />
 
     <br />
     <div id="ShowAddCar" runat="server" visible="false">
@@ -138,7 +138,7 @@
             <tr>
                 <td></td>
                 <td>
-                     <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Terminer" />
+                     <asp:Button ID="AddCar" runat="server" OnClick="AddCar_Click" Text="Terminer" />
                 </td>
             </tr>
             <tr>
@@ -184,7 +184,7 @@
                     Date :
                 </td>
                 <td>
-                    <asp:Calendar ID="Date" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
+                    <asp:Calendar ID="Date" runat="server"></asp:Calendar>
                 </td>
             </tr>
             <tr>

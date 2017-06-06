@@ -85,13 +85,13 @@ namespace TravelExpressAsp.Account {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
         
         /// <summary>
-        /// Button1 control.
+        /// ShowCar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button ShowCar;
         
         /// <summary>
         /// ShowAddCar control.
@@ -157,13 +157,13 @@ namespace TravelExpressAsp.Account {
         protected global::System.Web.UI.WebControls.TextBox Plaque;
         
         /// <summary>
-        /// Button2 control.
+        /// AddCar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button AddCar;
         
         /// <summary>
         /// Erreur control.

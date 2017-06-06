@@ -110,7 +110,7 @@
     </asp:FormView>
 
 
-    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Change password" />
+    <asp:Button ID="ShowPass" runat="server" OnClick="ShowPass_Click" Text="Change password" />
 
     <br />
     <div id="showMdp" runat="server" visible="false">
@@ -134,7 +134,7 @@
             <tr>
                 <td></td>
                 <td>
-                     <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Change" />
+                     <asp:Button ID="ChangePass" runat="server" OnClick="ChangePass_Click" Text="Change" />
                 </td>
             </tr>
              <tr>
@@ -170,7 +170,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
 </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:travelexpressConnectionString2 %>" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:travelexpressConnectionString2.ProviderName %>" SelectCommand="SELECT [id_car], [brand], [model], [type], [places], [year], [registration] FROM [car] WHERE ([id_user] = ?)" OnSelecting="SqlDataSource2_Selecting" DeleteCommand="DELETE FROM [car] WHERE [id_car] = @id_car" InsertCommand="INSERT INTO [car] ( [brand], [model], [type], [places], [year], [registration]) VALUES ( ?, ?, ?, ?, ?, ?)" UpdateCommand="UPDATE [car] SET [brand] = ?, [model] = ?, [type] = ?, [places] = ?, [year] = ?, [registration] = ? WHERE [id_car] = ?">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:travelexpressConnectionString2 %>" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:travelexpressConnectionString2.ProviderName %>" SelectCommand="SELECT [id_car], [brand], [model], [type], [places], [year], [registration] FROM [car] WHERE ([id_user] = ?)" DeleteCommand="DELETE FROM [car] WHERE [id_car] = @id_car" InsertCommand="INSERT INTO [car] ( [brand], [model], [type], [places], [year], [registration]) VALUES ( ?, ?, ?, ?, ?, ?)" UpdateCommand="UPDATE [car] SET [brand] = ?, [model] = ?, [type] = ?, [places] = ?, [year] = ?, [registration] = ? WHERE [id_car] = ?">
             <DeleteParameters>
                 <asp:Parameter Name="id_car"   />
             </DeleteParameters>
@@ -198,7 +198,7 @@
     </asp:SqlDataSource>
     <br />
 
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Add Car" />
+    <asp:Button ID="ShowAddCarBtn" runat="server" OnClick="ShowAddCar_Click" Text="Add Car" />
 
     <br />
     <div id="ShowAddCar" runat="server" visible="false">
@@ -260,7 +260,7 @@
             <tr>
                 <td></td>
                 <td>
-                     <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Finish" />
+                     <asp:Button ID="AddCar" runat="server" OnClick="AddCar_Click" Text="Finish" />
                 </td>
             </tr>
             <tr>

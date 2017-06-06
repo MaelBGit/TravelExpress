@@ -14,8 +14,12 @@ namespace TravelExpressAsp.Account
         {
 
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// bouton de validation de création de profil utilisateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Register_Click(object sender, EventArgs e)
         {
             Erreur1.Visible = false;
             Erreur2.Visible = false;

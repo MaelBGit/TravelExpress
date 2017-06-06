@@ -103,7 +103,7 @@
     </table>
     
 
-    <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
+    <asp:Button ID="RegisterBtn" runat="server" Text="Register" OnClick="Register_Click" />
 
     <br />
     <asp:Label ID="Erreur1" runat="server" Text="You have to fill everything" Visible="False"></asp:Label>

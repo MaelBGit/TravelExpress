@@ -24,7 +24,7 @@
         
 
     </table>
-    <asp:Button ID="Button1" runat="server" Text="Log In" Width="60px" OnClick="Button1_Click" />
+    <asp:Button ID="LoginBtn" runat="server" Text="Log In" Width="60px" OnClick="Login_Click" />
 
     </asp:Content>
 

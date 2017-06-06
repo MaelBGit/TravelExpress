@@ -18,7 +18,12 @@ namespace TravelExpressAsp.Account
                 Response.Redirect("~/Default.aspx");
             }
         }
-        protected void Button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// affichage de l'interface d'ajout de voitures
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ShowCar_Click(object sender, EventArgs e)
         {
             if (ShowAddCar.Visible == false)
                 ShowAddCar.Visible = true;
@@ -26,14 +31,18 @@ namespace TravelExpressAsp.Account
             else if (ShowAddCar.Visible == true)
                 ShowAddCar.Visible = false;
         }
-
-        protected void Button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// bouton d'ajout de voiture dans la base
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void AddCar_Click(object sender, EventArgs e)
         {
             Erreur.Visible = false;
             Erreur2.Visible = false;
             try
             {
-                if (Marque.Text != "" && Model.Text != "" && Annee.Text != "" && Places.Text != "" &&  ListeTypeCar.SelectedValue != "" && Plaque.Text != "" && (int)Session["idu"] != 0)
+                if (Marque.Text != "" && Model.Text != "" && Annee.Text != "" && Places.Text != "" && ListeTypeCar.SelectedValue != "" && Plaque.Text != "" && (int)Session["idu"] != 0)
                 {
                     int year = int.Parse(Annee.Text);
                     int place = int.Parse(Places.Text);
@@ -53,20 +62,20 @@ namespace TravelExpressAsp.Account
 
         }
 
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-        {
-        }
-
-        protected void SqlDataSource3_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// affichage d'interface d'ajout de voyage 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ShowTravel_Click(object sender, EventArgs e)
         {
             ShowAddTravel.Visible = true;
         }
-
+        /// <summary>
+        /// Bouton de validation de création de voyage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ValidateTravel_Click(object sender, EventArgs e)
         {
             Erreur3.Visible = false;
@@ -76,7 +85,7 @@ namespace TravelExpressAsp.Account
                 int i = int.Parse(MaxPlace.SelectedValue);
                 if (Start.Text != "" && End.Text != "" && Date.SelectedDate.ToShortDateString() != "" && Departure.Text != "" && Arrival.Text != "" && TravelPlaces.Text != "" && (int.Parse(TravelPlaces.Text) <= int.Parse(MaxPlace.Text)) && Price.Text != "" && (int)Session["idu"] != 0)
                 {
-                    Travels addTravel = new Travels(0, int.Parse(ListCar.SelectedValue), Start.Text, End.Text, Date.SelectedDate.ToShortDateString().Replace('/','-'), Departure.Text, Arrival.Text, int.Parse(TravelPlaces.Text), Price.Text);
+                    Travels addTravel = new Travels(0, int.Parse(ListCar.SelectedValue), Start.Text, End.Text, Date.SelectedDate.ToShortDateString().Replace('/', '-'), Departure.Text, Arrival.Text, int.Parse(TravelPlaces.Text), Price.Text);
                     addTravel.Insert_Travel_Into_DB();
                     Response.Redirect("MyTravels.aspx");
                 }
@@ -91,7 +100,11 @@ namespace TravelExpressAsp.Account
                 Erreur4.Visible = true;
             }
         }
-
+        /// <summary>
+        /// action sur le lien des voitures a la table, si rien a afficher nous allons auto afficher l'ajout de voiture
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void ListCar_DataBound(object sender, EventArgs e)
         {
             if (ListCar.SelectedValue != "")
@@ -101,15 +114,15 @@ namespace TravelExpressAsp.Account
 
             }
         }
-
+        /// <summary>
+        /// Action sur le liage des données afin de choisir la premiere valeure par defaut
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void MaxPlace_DataBound(object sender, EventArgs e)
         {
             MaxPlace.SelectedIndex = 0;
         }
 
-        protected void SqlDataSource4_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-        {
-
-        }
     }
 }

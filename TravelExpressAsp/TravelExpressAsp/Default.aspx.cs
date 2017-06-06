@@ -19,12 +19,11 @@ namespace TravelExpressAsp
                 GridView1.Columns[9].Visible = false;
             }
         }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// clic afin de valider la recherche d'un trajet entre deux points
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Search_Click(object sender, EventArgs e)
         {
             SqlDataSource1.SelectCommand = " SELECT travel.places - COALESCE(SUM(reservation.places), 0) AS availableplaces, travel.id_journey, travel.start, travel.end, travel.`date`, travel.departure, travel.arrival, travel.places, travel.price FROM reservation RIGHT JOIN travel ON reservation.id_journey = travel.id_journey GROUP BY travel.id_journey, travel.start, travel.end, travel.`date`, travel.departure, travel.arrival, travel.places, travel.price having (start LIKE '%" + Departure.Text + "%' and end LIKE '%" + Arrival.Text + "%')";

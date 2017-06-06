@@ -17,11 +17,7 @@ namespace TravelExpressAsp.Travel
             }
         }
 
-        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-        {
-
-        }
-
+        //Action sur le changement de texte sur le noombre de place afin de recalculer le prix
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {
             ListBox1.DataBind();
@@ -35,6 +31,11 @@ namespace TravelExpressAsp.Travel
                 {
                     Price.Text = (places * int.Parse(ListBox1.SelectedItem.Value)).ToString();
                 }
+                else
+                {
+                    Price.Text = "0";
+                    Error.Visible = true;
+                }
             }
             catch(Exception ex)
             {
@@ -42,28 +43,12 @@ namespace TravelExpressAsp.Travel
                 Error.Visible = true;
             }
         }
-
-        protected void DetailsView1_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
-        {
-
-        }
-
-        protected void ListBox1_DataBound(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void SqlDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-        {
-
-        }
-
-        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// clic de validation de réservation de voyage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Validate_Click(object sender, EventArgs e)
         {
             if (Price.Text != "0")
             {

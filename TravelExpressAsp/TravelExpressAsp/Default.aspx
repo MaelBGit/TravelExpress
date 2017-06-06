@@ -16,7 +16,7 @@
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id_journey" DataSourceID="SqlDataSource1" Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="availableplaces" HeaderText="availableplaces" SortExpression="availableplaces" />
+                    <asp:BoundField DataField="availableplaces" HeaderText="Available places" SortExpression="availableplaces" />
                     <asp:BoundField DataField="id_journey" HeaderText="id_journey" InsertVisible="False" ReadOnly="True" SortExpression="id_journey" Visible="False" />
                     <asp:BoundField DataField="start" HeaderText="start" SortExpression="start" />
                     <asp:BoundField DataField="end" HeaderText="end" SortExpression="end" />

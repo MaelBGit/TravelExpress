@@ -40,13 +40,13 @@ namespace TravelExpressAsp.Account {
         protected global::System.Web.UI.WebControls.FormView FormView1;
         
         /// <summary>
-        /// Button3 control.
+        /// ShowPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button ShowPass;
         
         /// <summary>
         /// showMdp control.
@@ -76,13 +76,13 @@ namespace TravelExpressAsp.Account {
         protected global::System.Web.UI.WebControls.TextBox confirm;
         
         /// <summary>
-        /// Button4 control.
+        /// ChangePass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Button ChangePass;
         
         /// <summary>
         /// Erreurpass control.
@@ -121,13 +121,13 @@ namespace TravelExpressAsp.Account {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
         
         /// <summary>
-        /// Button1 control.
+        /// ShowAddCarBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button ShowAddCarBtn;
         
         /// <summary>
         /// ShowAddCar control.
@@ -193,13 +193,13 @@ namespace TravelExpressAsp.Account {
         protected global::System.Web.UI.WebControls.TextBox Plaque;
         
         /// <summary>
-        /// Button2 control.
+        /// AddCar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button AddCar;
         
         /// <summary>
         /// Erreur control.
